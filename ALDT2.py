@@ -11,10 +11,9 @@ def show_excitement():
     a = "I am super excited for this course!"
     c = ""
     for i in range(0,5):
-        b = " "
         #Pass a temp value or empty value to store result.
         # We say here in each loop add a+b to c not c to c.
-        c += (a + b)
+        c += a
     return c
 
 print (show_excitement())
