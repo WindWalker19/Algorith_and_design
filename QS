@@ -1,0 +1,47 @@
+import math
+
+
+#Create a function to quciksort.
+#Choose a pivot element.
+#Swap the pivot element to the end of the array.
+#Compare the left and right item with the pivot and swap if necessary.
+#check case until item from left is greater than item from right.
+# Keep all the smallest value of the pivot to the left and big value to the right.
+# compare values with pivot and swap.
+
+def partition(array,l,h):
+    k = (l -1)
+    #choosing the pivot element as the end value.
+    pivot = array[h]
+
+    for i in range(l,h):
+        #Compare element with the pivot and swaps accordingly.
+        if(array[i] < pivot):
+            k +=1
+            array[k],array[i] = array[i],array[k]
+    array[k+1],array[h] = array[h],array[k+1]
+    print(array,k+1)
+    return (k+1)
+
+
+def quickSort(array,l,h):
+    if l < h:
+
+        # pi is partitioning index, arr[p] is now
+        # at right place
+        pi = partition(array,l,h)
+        # Separately sort elements before partition and after partition
+        #Sorts the left side.
+        quickSort(array, l, pi-1)
+        #Sorts the right side.
+        quickSort(array, pi+1, h)
+
+        # print(pi)
+        # print(l,h)
+
+
+
+
+test = [5,4, 1, 3, 9, 20, 25, 6, 21, 14]
+high = len(test)
+print(quickSort(test,0,high-1))
